@@ -1,0 +1,16 @@
+version: "3.7"
+services:
+  api:
+    build: .
+    ports:
+      - 5000:3000
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo
+    ports:
+      - 29000:27017
+    volumes:
+      - datamongo:/data/db
+volumes:
+  datamongo:
